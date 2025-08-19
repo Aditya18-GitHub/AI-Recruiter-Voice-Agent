@@ -7,7 +7,7 @@ function InterviewHeader() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center">
         <div className="flex-shrink-0">
           <Image 
-            src="/Logo.png" 
+            src="/logo.png" 
             alt="Logo" 
             width={120}  // Slightly larger for better visibility
             height={40}  // Match your logo's aspect ratio
