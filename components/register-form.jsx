@@ -20,9 +20,9 @@ export function RegisterForm() {
   const { signUpNewUser } = UserAuth();
   const router = useRouter();
 
-  const emailRef = useRef();
-  const nameRef = useRef();
-  const passwordRef = useRef();
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
   const [role, setRole] = useState(""); 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -30,11 +30,7 @@ export function RegisterForm() {
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    const email = emailRef.current?.value.trim();
-    const name = nameRef.current?.value.trim();
-    const password = passwordRef.current?.value;
-
-    if (!email || !name || !password) {
+    if (!email || !name || !password || !role) {
       toast.error("Please fill in all fields.");
       return;
     }
@@ -109,7 +105,8 @@ export function RegisterForm() {
                 id="email"
                 type="email"
                 placeholder="user@example.com"
-                ref={emailRef}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 
                 className="pl-10"
               />
@@ -124,7 +121,8 @@ export function RegisterForm() {
               id="name"
               type="text"
               placeholder="John Doe"
-              ref={nameRef}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
               className={"pl-10"}
             />
             </div>
@@ -139,7 +137,8 @@ export function RegisterForm() {
               type="password"
               placeholder="**********"
               autoComplete="new-password"
-              ref={passwordRef}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className={"pl-10"}
             />
             </div>

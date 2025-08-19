@@ -15,8 +15,8 @@ export function LoginForm(props) {
   const router = useRouter();
   const { signInUser } = UserAuth();
 
-  const emailRef = useRef(null);
-  const passwordRef = useRef(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [loading, setLoading] = useState(false);
 
@@ -27,13 +27,11 @@ export function LoginForm(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const email = emailRef.current?.value?.trim().toLowerCase() || "";
-    const password = passwordRef.current?.value || "";
-
     if (!email || !password) {
       toast.error("Please provide both email and password.");
       return;
     }
+
 
     setLoading(true);
 
@@ -97,7 +95,8 @@ export function LoginForm(props) {
                 type="email"
                 placeholder="user@example.com"
                 required
-                ref={emailRef}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="pl-10"
               />
             </div>
@@ -124,7 +123,8 @@ export function LoginForm(props) {
                 placeholder="••••••••"
                 autoComplete="new-password"
                 required
-                ref={passwordRef}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="pl-10"
               />
             </div>
