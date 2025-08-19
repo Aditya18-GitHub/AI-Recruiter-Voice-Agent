@@ -235,7 +235,7 @@ return (
             className="absolute inset-0 border-2 border-dashed border-indigo-200 rounded-full"
           />
           <Image
-            src="/Logo.png" 
+            src="/logo.png" 
             alt="Logo" 
             fill
             className="object-contain p-4"
