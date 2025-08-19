@@ -3,6 +3,7 @@ import "./globals.css";
 import Provider from "./provider";
 import { Toaster } from "sonner";
 import { AuthContextProvider } from "@/context/AuthContext";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +24,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-gray-50 text-gray-900`}
       >
         <Provider>
           <AuthContextProvider>
-          {children}
-          <Toaster />
+            <main className="container mx-auto p-4">
+              {children}
+            </main>
+            <Toaster />
+            <SpeedInsights />
           </AuthContextProvider>
         </Provider>
       </body>
