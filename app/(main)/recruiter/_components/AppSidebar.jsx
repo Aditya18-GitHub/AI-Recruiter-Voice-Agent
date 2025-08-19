@@ -29,7 +29,7 @@ export function AppSidebar() {
       {/* Improved Logo Alignment */}
       <SidebarHeader className="flex items-center justify-center py-4 px-4">
         <Image
-          src="/Logo.png"
+          src="/logo.png"
           alt=" Logo"
           width={120}
           height={120}
